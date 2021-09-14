@@ -9,13 +9,13 @@ def callMovieApi(page=1):
 
     responseDict = response.json() 
     movies = responseDict["data"]["movies"]
-    return movies
+    return convert_model(movies)
 
 def convert_model(movies):
     list= []
 
     for movie in movies:
-        movie_model = MovieModel(movie["title"], movie["rating"], movie["samll_cover_image"], movie["summary"]) 
+        movie_model = MovieModel(movie["title"], movie["rating"], movie["small_cover_image"], movie["summary"]) 
         list.append(movie_model)
     
     return list
